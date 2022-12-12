@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>App with Vue js 3</title>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div class="header_block">
+            <center><h1>Заметки</h1></center>
+        </div>
+    
+        <hr>
+
+        <div class="create_note_block">
+            <center>
+                <h2>
+                    Создать заметку ({{note_title}})
+                </h2>
+                <div class="form_block">
+                    <form action="" @submit.prevent="addNote">
+                        <div class="form_block_div">
+                            <label for="title_note"> Название заметки: </label>
+                            <input v-on:input="note_title = $event.target.value" v-model="title" type="text" name="note_title" id="title_note" placeholder="Введите сюда название заметки">
+                        </div>
+                        <div class="form_block_div">
+                            <label for="title_note"> Описание заметки: </label>
+                            <input v-model="description" type="text" name="note_desc" id="description_note" placeholder="Введите сюда описание заметки">
+                        </div>
+                        <button class="button_style button_create" >Создать</button>
+                    </form>
+                </div>
+            </center>
+        </div>
+
+        <hr>
+
+        <div class="management_block">
+            <center>
+                <button class="button_style" :class="{button_save : needToSave, button_none : !needToSave}" @click="saveNotes_in_local()">Сохранить заметки в loaclstorage</button>
+                <button class="button_style" :class="{button_remove : isLocal, button_none : !isLocal}" @click="removeNotes_from_local()">Удалить заметки из loaclstorage</button>
+                <button class="button_style" :class="{button_remove : !isEmpty, button_none : isEmpty}" @click="removeAllNotes()">Удалить всё :)</button>
+            </center>
+        </div>
+
+        <hr>
+
+        <div class="notes_list_block">
+            <center>
+                <h2>Заметки</h2>
+                <div class="notes_list">
+                    <table class="notes_list_table">
+                        <thead>
+                            <tr>
+                                <td>Статус</td>
+                                <td>Название</td>
+                                <td>Описание</td>
+                                <td>Удалить</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="note in notes_data">
+                                <td><input type="checkbox" v-on:change="note.completed = !note.completed" @click="changed()" v-bind:checked="note.completed"></td>
+                                <td v-bind:class="{ done : note.completed }">{{ note.title }}</td>
+                                <td>{{ note.description }}</td>
+                                <td class="td_delete"><button v-on:click="removeNote(note.id)" >&times;</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

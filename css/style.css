@@ -1,0 +1,102 @@
+.app
+{
+    width: 100%;
+}
+
+.header_block
+{
+    color: rgb(44, 117, 62);
+    margin: 0;
+}
+
+.create_note_block
+{
+    margin: 30px 0;
+}
+
+.form_block
+{
+    font-size: 18px;
+}
+
+.form_block_div
+{
+    margin-bottom: 15px;
+}
+
+.form_block_div > input
+{
+    font-size: 15px;
+    width: 300px;
+}
+
+.button_style
+{
+    margin: 5px 10px;
+    
+    border: 0;
+    border-radius: 24px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    color: #ffffff;
+    font-size: 16px;
+    max-width: 100%;
+    min-width: 140px;
+    min-height: 30px;
+    padding: 3px 10px;
+}
+
+.button_create
+{
+    background-color: #2fb6b6;
+}
+
+.button_save
+{
+    background-color: #528d0f;
+}
+
+.button_none
+{
+    background-color: #9097a0;
+}
+
+.button_remove
+{
+    background-color: #d43f3f;
+}
+
+.notes_list_table
+{
+    border-collapse: collapse;
+    text-align: center;
+    min-width: 600px;
+}
+
+td
+{
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.td_delete
+{
+    width: 20px;
+    padding: 0;
+    background: rgb(235, 232, 232);
+}
+
+.td_delete > button
+{
+    width: 20px;
+    font-size: 18px;
+    border: none;
+    background: none;
+    color: red;
+    font-weight: bold;
+}
+
+.done
+{
+    text-decoration: line-through;
+}
